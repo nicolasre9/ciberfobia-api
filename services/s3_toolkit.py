@@ -13,10 +13,10 @@ def parse_s3_url(s3_url):
     bucket_name = parsed_url.hostname.split('.')[0]
     
     # Extract region from the host
-    region = parsed_url.hostname.split('.')[1]
+    region = parsed_url.hostname.split('.')[2]
     
-    # Construct endpoint URL
-    endpoint_url = f"https://{region}.digitaloceanspaces.com"
+    # Construct endpoint URL (https://bucket.s3.region.amazonaws.com)
+    endpoint_url = s3_url
     
     return bucket_name, region, endpoint_url
 
